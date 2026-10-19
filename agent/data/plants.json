@@ -1,0 +1,22 @@
+[
+  {"plant_name": "pothos", "common_issues": ["wilting", "yellowing"], "light_need": "low to bright indirect", "water_freq": "every 7-10 days"},
+  {"plant_name": "monstera", "common_issues": ["yellowing", "root rot"], "light_need": "bright indirect", "water_freq": "every 7-14 days"},
+  {"plant_name": "spider plant", "common_issues": ["brown tips"], "light_need": "bright indirect", "water_freq": "every 7 days"},
+  {"plant_name": "snake plant", "common_issues": ["overwatering", "root rot"], "light_need": "low to bright indirect", "water_freq": "every 14-21 days"},
+  {"plant_name": "peace lily", "common_issues": ["wilting", "yellow leaves"], "light_need": "low to medium indirect", "water_freq": "every 7 days"},
+  {"plant_name": "aloe vera", "common_issues": ["overwatering", "brown tips"], "light_need": "bright indirect to full sun", "water_freq": "every 14-21 days"},
+  {"plant_name": "fern", "common_issues": ["brown tips", "dropping"], "light_need": "indirect", "water_freq": "every 3-5 days"},
+  {"plant_name": "orchid", "common_issues": ["root rot", "yellowing"], "light_need": "bright indirect", "water_freq": "every 7 days"},
+  {"plant_name": "jade plant", "common_issues": ["overwatering"], "light_need": "full sun", "water_freq": "every 14 days"},
+  {"plant_name": "cactus", "common_issues": ["overwatering", "root rot"], "light_need": "full sun", "water_freq": "every 21-30 days"},
+  {"plant_name": "rubber plant", "common_issues": ["overwatering", "dropping"], "light_need": "bright indirect", "water_freq": "every 7-14 days"},
+  {"plant_name": "lavender", "common_issues": ["overwatering", "root rot"], "light_need": "full sun", "water_freq": "every 7-14 days"},
+  {"plant_name": "ivy", "common_issues": ["pests", "dropping"], "light_need": "moderate indirect", "water_freq": "every 5-7 days"},
+  {"plant_name": "basil", "common_issues": ["wilting", "yellowing"], "light_need": "full sun", "water_freq": "every 2-3 days"},
+  {"plant_name": "rose", "common_issues": ["pests", "fungus", "yellowing"], "light_need": "full sun", "water_freq": "every 3-5 days"},
+  {"plant_name": "calathea", "common_issues": ["brown tips", "wilting"], "light_need": "indirect medium", "water_freq": "every 5-7 days"},
+  {"plant_name": "ficus", "common_issues": ["dropping", "wilting"], "light_need": "bright indirect", "water_freq": "every 7 days"},
+  {"plant_name": "succulent", "common_issues": ["overwatering"], "light_need": "full sun to bright indirect", "water_freq": "every 14-21 days"},
+  {"plant_name": "tomato plant", "common_issues": ["wilting", "pests", "blight"], "light_need": "full sun", "water_freq": "every 2-3 days"},
+  {"plant_name": "unknown", "common_issues": [], "light_need": "varies", "water_freq": "varies"}
+]

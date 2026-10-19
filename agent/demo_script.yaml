@@ -1,0 +1,21 @@
+title: "PlantWise – a beginner plant-care advisor powered by Strands Decider 2B"
+pitch: "Describe what you see and PlantWise tells you what your plant needs — water, better light, or a closer look."
+features:
+  - "plain-language observations — no plant expertise needed"
+  - "Strands Decider 2B classifies the situation before the LLM replies"
+  - "beginner-friendly care tips for every recommended action"
+  - "asks a clarifying question when confidence is low, instead of guessing"
+  - "runs on Amazon Bedrock AgentCore Runtime"
+eager: false
+intro: "PlantWise is a beginner plant-care advisor. The user describes what they observe, and Strands Decider decides — water, sunlight, or inspect — before Amazon Bedrock writes the reply."
+intro_normal: "PlantWise runs on Amazon Bedrock AgentCore Runtime. Strands Decider classifies every observation before Amazon Bedrock generates the reply."
+turns:
+  - say: "My pothos has bone-dry soil and the leaves are drooping. It sits in a dark corner."
+    narrate: "Dry soil plus wilting — the decider should pick water with high confidence."
+  - say: "My monstera has yellow leaves and gets almost no sunlight near the back wall."
+    narrate: "Yellowing with low light — the decider should pick sunlight."
+  - say: "My fern's soil is moist but some leaves are brown at the tips and a few are dropping."
+    narrate: "Mixed signals — the decider should pick inspect, or ask for more detail if uncertain."
+  - say: "How has my pothos been doing?"
+    narrate: "The agent retrieves the care history logged from the first turn."
+outro: "One forward pass per observation. Typed answers with calibrated confidence. Amazon Bedrock for the conversation. PlantWise — built with the AWS User Group Madurai Strands Decider hackathon kit."

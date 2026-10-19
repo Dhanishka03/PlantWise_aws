@@ -1,0 +1,405 @@
+{
+ "decider_model": "strands-decider-2b-hobson-v19",
+ "rows": [
+  {
+   "i": 0,
+   "expected": {
+    "care_action": "water",
+    "urgent": "no"
+   },
+   "decider": {
+    "care_action": {
+     "label": "water",
+     "confidence": 0.92
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.6665
+    }
+   },
+   "decider_ms": 4829.06049999292,
+   "decider_server_ms": 2648.1,
+   "llm": {
+    "care_action": {
+     "label": "water",
+     "confidence": 0.95
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.85
+    }
+   },
+   "llm_ms": 19768.338299996685,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 1,
+   "expected": {
+    "care_action": "water",
+    "urgent": "no"
+   },
+   "decider": {
+    "care_action": {
+     "label": "water",
+     "confidence": 0.8857
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.5932
+    }
+   },
+   "decider_ms": 4719.265799998539,
+   "decider_server_ms": 2681.8,
+   "llm": {
+    "care_action": {
+     "label": "water",
+     "confidence": 0.95
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.9
+    }
+   },
+   "llm_ms": 16168.64409999107,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 2,
+   "expected": {
+    "care_action": "water",
+    "urgent": "yes"
+   },
+   "decider": {
+    "care_action": {
+     "label": "water",
+     "confidence": 0.8145
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.7425
+    }
+   },
+   "decider_ms": 3667.486000005738,
+   "decider_server_ms": 2633.2,
+   "llm": {
+    "care_action": {
+     "label": "water",
+     "confidence": 0.95
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.85
+    }
+   },
+   "llm_ms": 17365.50559999887,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 3,
+   "expected": {
+    "care_action": "water",
+    "urgent": "yes"
+   },
+   "decider": {
+    "care_action": {
+     "label": "water",
+     "confidence": 0.9187
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.6608
+    }
+   },
+   "decider_ms": 4303.448599996045,
+   "decider_server_ms": 2661.1,
+   "llm": {
+    "care_action": {
+     "label": "water",
+     "confidence": 0.95
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.85
+    }
+   },
+   "llm_ms": 16799.326599997585,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 4,
+   "expected": {
+    "care_action": "sunlight",
+    "urgent": "no"
+   },
+   "decider": {
+    "care_action": {
+     "label": "sunlight",
+     "confidence": 0.794
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.8136
+    }
+   },
+   "decider_ms": 6445.540999993682,
+   "decider_server_ms": 2634.3,
+   "llm": {
+    "care_action": {
+     "label": "sunlight",
+     "confidence": 0.9
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.85
+    }
+   },
+   "llm_ms": 26327.708299999358,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 5,
+   "expected": {
+    "care_action": "sunlight",
+    "urgent": "no"
+   },
+   "decider": {
+    "care_action": {
+     "label": "sunlight",
+     "confidence": 0.8472
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.9046
+    }
+   },
+   "decider_ms": 5760.7761999970535,
+   "decider_server_ms": 2636.2,
+   "llm": {
+    "care_action": {
+     "label": "sunlight",
+     "confidence": 0.95
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.95
+    }
+   },
+   "llm_ms": 19559.983099999954,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 6,
+   "expected": {
+    "care_action": "sunlight",
+    "urgent": "no"
+   },
+   "decider": {
+    "care_action": {
+     "label": "inspect",
+     "confidence": 0.4427
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.8527
+    }
+   },
+   "decider_ms": 3536.4642000058666,
+   "decider_server_ms": 2678.0,
+   "llm": {
+    "care_action": {
+     "label": "sunlight",
+     "confidence": 0.95
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.9
+    }
+   },
+   "llm_ms": 18101.354700003867,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 7,
+   "expected": {
+    "care_action": "inspect",
+    "urgent": "yes"
+   },
+   "decider": {
+    "care_action": {
+     "label": "inspect",
+     "confidence": 0.877
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.7528
+    }
+   },
+   "decider_ms": 6162.642499999492,
+   "decider_server_ms": 2684.9,
+   "llm": {
+    "care_action": {
+     "label": "inspect",
+     "confidence": 0.95
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.85
+    }
+   },
+   "llm_ms": 26784.261099994183,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 8,
+   "expected": {
+    "care_action": "inspect",
+    "urgent": "no"
+   },
+   "decider": {
+    "care_action": {
+     "label": "inspect",
+     "confidence": 0.8891
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.8771
+    }
+   },
+   "decider_ms": 16048.072399993544,
+   "decider_server_ms": 2689.4,
+   "llm_error": "APITimeoutError: Request timed out."
+  },
+  {
+   "i": 9,
+   "expected": {
+    "care_action": "inspect",
+    "urgent": "yes"
+   },
+   "decider": {
+    "care_action": {
+     "label": "inspect",
+     "confidence": 0.8093
+    },
+    "urgent": {
+     "label": "yes",
+     "confidence": 0.5366
+    }
+   },
+   "decider_ms": 18094.640699986485,
+   "decider_server_ms": 2677.3,
+   "llm": {
+    "care_action": {
+     "label": "inspect",
+     "confidence": 0.95
+    },
+    "urgent": {
+     "label": "yes",
+     "confidence": 0.9
+    }
+   },
+   "llm_ms": 38891.21929999965,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 10,
+   "expected": {
+    "care_action": "inspect",
+    "urgent": "no"
+   },
+   "decider": {
+    "care_action": {
+     "label": "inspect",
+     "confidence": 0.849
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.89
+    }
+   },
+   "decider_ms": 35869.816399994306,
+   "decider_server_ms": 2701.0,
+   "llm": {
+    "care_action": {
+     "label": "inspect",
+     "confidence": 0.9
+    },
+    "urgent": {
+     "label": "no",
+     "confidence": 0.95
+    }
+   },
+   "llm_ms": 43947.86070000555,
+   "llm_cost": 0.0
+  },
+  {
+   "i": 11,
+   "expected": {
+    "care_action": "sunlight",
+    "urgent": "yes"
+   },
+   "decider": {
+    "care_action": {
+     "label": "sunlight",
+     "confidence": 0.6726
+    },
+    "urgent": {
+     "label": "yes",
+     "confidence": 0.5851
+    }
+   },
+   "decider_ms": 15442.769200002658,
+   "decider_server_ms": 2662.2,
+   "llm": {
+    "care_action": {
+     "label": "sunlight",
+     "confidence": 0.95
+    },
+    "urgent": {
+     "label": "yes",
+     "confidence": 0.85
+    }
+   },
+   "llm_ms": 17900.797299997066,
+   "llm_cost": 0.0
+  }
+ ],
+ "summary": {
+  "decider": {
+   "accuracy": 0.8333,
+   "decisions": 24,
+   "per_question": {
+    "care_action": 0.9167,
+    "urgent": 0.75
+   },
+   "latency_p50_ms": 6162.6,
+   "latency_p95_ms": 18094.6,
+   "usd_per_1k_decisions": 0.035,
+   "confident_share": 0.7083,
+   "accuracy_when_confident": 0.8824,
+   "sent_to_human_at_threshold": 7
+  },
+  "llm": {
+   "accuracy": 0.8636,
+   "decisions": 22,
+   "per_question": {
+    "care_action": 1.0,
+    "urgent": 0.7273
+   },
+   "latency_p50_ms": 19560.0,
+   "latency_p95_ms": 43947.9,
+   "usd_per_1k_decisions": 0.0,
+   "confident_share": 1.0,
+   "accuracy_when_confident": 0.8636,
+   "sent_to_human_at_threshold": 0
+  },
+  "speedup_p50": 3.17
+ },
+ "threshold": 0.7,
+ "llm_model": "qwen3.5-4b",
+ "llm_provider": "ugmdu",
+ "llm_where": "AWS User Group Madurai cloud (qwen3.5-4b)",
+ "decider_url": "https://da25tnxy06gjk.cloudfront.net",
+ "decider_mode": "ugmdu",
+ "ran_at": 1792254807.9451895,
+ "split": "test"
+}

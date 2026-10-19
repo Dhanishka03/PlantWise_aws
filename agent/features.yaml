@@ -1,0 +1,17 @@
+# Amazon Bedrock AgentCore features for PlantWise.
+# PlantWise uses Runtime only — no Memory or Gateway needed for this use case.
+
+memory:
+  enabled: false
+  name: agentmemory
+  strategies: [SEMANTIC, USER_PREFERENCE]
+  expiry_days: 30
+
+gateway:
+  enabled: false
+  name: tools
+  authorizer: AWS_IAM
+  targets:
+    - name: websearch
+      type: connector
+      connector: web-search

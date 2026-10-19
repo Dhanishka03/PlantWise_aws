@@ -1,0 +1,99 @@
+{
+ "pattern_tag": "#policy",
+ "agentcore_features": [],
+ "pattern_doc": "REUSABLE DECISION PATTERN: plant-care policy classification  (#policy)\n\nWhat it does\n    Before the plant-care agent recommends an action, Strands Decider 2B reads the user's\n    natural-language observations (soil moisture, leaf condition, sunlight) and classifies the\n    situation into one of three care actions:\n      - water:    dry soil or dehydration signs\n      - sunlight: light-related symptoms (yellowing, leggy growth, scorch)\n      - inspect:  ambiguous, mixed, or non-light/water problems\n\n    It also checks whether the situation is urgent (severe wilting, rapid leaf drop).\n\n    When confidence is below 0.55, the wiring returns a special \"clarify\" verdict so the\n    agent asks a follow-up question rather than guessing.\n\nTyped questions and options\n    care_action (choice):\n      water    \u00e2\u20ac\u201c dry soil or dehydration signs (wilting, dry crispy tips)\n      sunlight \u00e2\u20ac\u201c light-related symptoms (yellowing, leggy growth, sun-scorch)\n      inspect  \u00e2\u20ac\u201c ambiguous, mixed, or non-light/water problems\n    urgent (noul):\n      true  \u00e2\u20ac\u201c severe distress that needs attention today\n      false \u00e2\u20ac\u201c mild or gradual symptoms\n\nWiring\n    `PlantCarePolicy` is called in `HackathonAgent.chat()` before the Strands Agent runs:\n\n        verdict = self.policy.evaluate(observation_text)\n        # verdict has .action (\"water\"|\"sunlight\"|\"inspect\"|\"clarify\"),\n        #              .confidence, .urgent, .decider_ms\n\n    The verdict is injected into the system prompt context so the LLM knows what the decider\n    decided. The log record is appended to `decisions` in the chat response.\n\nHow to reuse it\n    Copy this file, replace the three care actions in QUESTIONS[\"care_action\"] with your own\n    categories (each with a one-line description), and adjust the 0.55 threshold in\n    PlantCarePolicy.evaluate() for your domain's tolerance for uncertainty.",
+ "questions_code": "QUESTIONS = {\n    \"care_action\": Decider.choice(\n        \"What is the most appropriate next care step given these plant observations?\",\n        {\n            \"water\":    \"the soil is dry or the plant shows dehydration signs such as wilting, drooping, or dry crispy leaf tips \u00e2\u20ac\u201d watering is clearly the fix\",\n            \"sunlight\": \"the plant is in a low-light spot or getting too much direct sun, shown by yellowing leaves, leggy pale etiolated growth, leaf drop in dark conditions, or sun-scorched patches \u00e2\u20ac\u201d moving it to better light is the fix\",\n            \"inspect\":  \"the soil moisture and light are both adequate but symptoms persist, or signs point to pests, disease, root rot, nutrient deficiency, or overwatering \u00e2\u20ac\u201d investigation is needed before acting\",\n        }\n    ),\n    \"urgent\": Decider.noul(\n        \"Does the plant show urgent distress that needs attention today?\",\n        {\n            \"true\":  \"severe wilting, rapid leaf drop, or extensive browning that will worsen within a day\",\n            \"false\": \"mild or gradual symptoms that can wait a few days\",\n        }\n    ),\n}",
+ "agent_md": "# PlantWise\n\n- **Pitch:** a beginner plant-care advisor that reads your observations and tells you exactly\n  what your plant needs \u00e2\u20ac\u201d water, better light, or a closer look.\n- **Who it is for:** beginner plant owners who aren't sure when or how to act on what they see.\n- **Features:**\n  - describe soil moisture, leaf condition and sunlight in plain words \u00e2\u20ac\u201d no plant expertise needed;\n  - Strands Decider 2B classifies the situation into water / sunlight / inspect before the LLM replies;\n  - beginner-friendly care tips tailored to the recommended action;\n  - logs every observation so you can track a plant over time;\n  - asks a clarifying question when confidence is low, instead of guessing;\n  - deployed on Amazon Bedrock AgentCore Runtime.\n- **The decision handed to Strands Decider 2B:** which care action fits these observations \u00e2\u20ac\u201d\n  water, improve sunlight, or inspect further? (`#policy`)\n- **Why a decision model:** the same three-way classification runs on every message; it must be\n  fast, cheap, and return a confidence the code can branch on for low-confidence handling.\n- **Amazon Bedrock:** the conversational replies and tool use (Amazon Nova Pro by default).\n",
+ "llm_provider_local_runs": "ugmdu",
+ "agent_name": "PlantWise \u00e2\u20ac\u201c beginner plant-care advisor",
+ "bench": {
+  "summary": {
+   "decider": {
+    "accuracy": 0.8333,
+    "decisions": 24,
+    "per_question": {
+     "care_action": 0.9167,
+     "urgent": 0.75
+    },
+    "latency_p50_ms": 6162.6,
+    "latency_p95_ms": 18094.6,
+    "usd_per_1k_decisions": 0.035,
+    "confident_share": 0.7083,
+    "accuracy_when_confident": 0.8824,
+    "sent_to_human_at_threshold": 7
+   },
+   "llm": {
+    "accuracy": 0.8636,
+    "decisions": 22,
+    "per_question": {
+     "care_action": 1.0,
+     "urgent": 0.7273
+    },
+    "latency_p50_ms": 19560.0,
+    "latency_p95_ms": 43947.9,
+    "usd_per_1k_decisions": 0.0,
+    "confident_share": 1.0,
+    "accuracy_when_confident": 0.8636,
+    "sent_to_human_at_threshold": 0
+   },
+   "speedup_p50": 3.17
+  },
+  "decider_model": "strands-decider-2b-hobson-v19",
+  "decider_mode": "ugmdu",
+  "llm_model": "qwen3.5-4b",
+  "cases": 12,
+  "split": "test",
+  "threshold": 0.7
+ },
+ "bench_table": "Decider: strands-decider-2b-hobson-v19 (ugmdu). 12 labelled cases, 24 decisions.\n\n| | Strands Decider 2B | qwen3.5-4b |\n|---|---|---|\n| Accuracy | 83.3% | 86.4% |\n| Latency p50 per decision | 6163 ms | 19560 ms |\n| Latency p95 | 18095 ms | 43948 ms |\n| Cost per 1,000 decisions | $0.0350 | $0.0000 |\n| Answered alone at confidence >= 0.7 | 71% | 100% |\n| Accuracy when confident | 88.2% | 86.4% |\n\nAt the median the decider was 3.2x faster than the LLM.\n",
+ "demo_turns": [
+  {
+   "user": "My headphones are broken, I want my money back.",
+   "reply": "Please provide the order ID for the headphones so I can process your refund.",
+   "decisions": [
+    {
+     "pattern": "#guardrails",
+     "tool": "refund_order",
+     "args": {
+      "amount": 249.0,
+      "order_id": "A1002"
+     },
+     "args_grounded": 0.437,
+     "explicit_request": 0.791,
+     "premature": 0.235,
+     "decider_ms": 3075,
+     "verdict": "guide"
+    }
+   ],
+   "latency_ms": 6970
+  },
+  {
+   "user": "It's order A1002, refund the full amount please.",
+   "reply": "Your refund for order A1002 has been processed. You will receive 249.0 back to your original payment method. If you have any further questions, feel free to ask.",
+   "decisions": [
+    {
+     "pattern": "#guardrails",
+     "tool": "refund_order",
+     "args": {
+      "amount": 249,
+      "order_id": "A1002"
+     },
+     "args_grounded": 0.608,
+     "explicit_request": 0.894,
+     "premature": 0.128,
+     "decider_ms": 3894,
+     "verdict": "proceed"
+    }
+   ],
+   "latency_ms": 5813
+  },
+  {
+   "user": "Is it possible to cancel an order after it ships?",
+   "reply": "Once an order has shipped, it cannot be cancelled. However, you can still request a refund after receiving the item. If you have any further questions, feel free to ask.",
+   "decisions": [],
+   "latency_ms": 940
+  }
+ ],
+ "repo_url": "",
+ "video_url": ""
+}

@@ -1,0 +1,102 @@
+[
+ {
+  "start": 4.233957052230835,
+  "end": 36.88666486740112,
+  "out": {
+   "reply": "Oh no, dry soil and drooping leaves sound like your pothos is really thirsty! Let's get that watering going. I'll fetch you a friendly care tip to help you do it right.",
+   "decisions": [
+    {
+     "pattern": "#policy",
+     "action": "water",
+     "confidence": 0.878,
+     "urgent": false,
+     "p_urgent": 0.393,
+     "decider_ms": 3787,
+     "probabilities": {},
+     "verdict": "water"
+    }
+   ],
+   "model_id": "qwen3.5-4b",
+   "latency_ms": 27658,
+   "agent": "PlantWise \u2013 beginner plant-care advisor",
+   "eager": false
+  },
+  "say": "My pothos has bone-dry soil and the leaves are drooping. It sits in a dark corner.",
+  "narrate": "Dry soil plus wilting \u00e2\u20ac\u201d the decider should pick water with high confidence."
+ },
+ {
+  "start": 36.88666486740112,
+  "end": 89.30782055854797,
+  "out": {
+   "reply": "That\u2019s great advice\u2014moving your monstera to a spot with brighter indirect light should help it regain that vibrant green color. Just be careful not to put it directly in harsh sunlight, as that could burn those beautiful leaves.\n\nWould you like me to save this care detail about your monstera so we can track it if other symptoms show up?",
+   "decisions": [
+    {
+     "pattern": "#policy",
+     "action": "sunlight",
+     "confidence": 0.82,
+     "urgent": false,
+     "p_urgent": 0.131,
+     "decider_ms": 4112,
+     "probabilities": {},
+     "verdict": "sunlight"
+    }
+   ],
+   "model_id": "qwen3.5-4b",
+   "latency_ms": 47653,
+   "agent": "PlantWise \u2013 beginner plant-care advisor",
+   "eager": false
+  },
+  "say": "My monstera has yellow leaves and gets almost no sunlight near the back wall.",
+  "narrate": "Yellowing with low light \u00e2\u20ac\u201d the decider should pick sunlight."
+ },
+ {
+  "start": 89.30782055854797,
+  "end": 117.57825326919556,
+  "out": {
+   "reply": "Oh no, browning leaf tips and leaf drop can be really worrying for ferns! Since the soil is already moist, it doesn't look like an immediate overwatering crisis, and those symptoms might point to something else that we'd need to take a closer look at to be sure about.\n\nLet's recommend checking your fern closely first to see if there are any other signs, like insect damage or environmental stress you might have noticed. This inspection could help pinpoint exactly what's causing those brown tips and falling leaves and determine the best way forward.",
+   "decisions": [
+    {
+     "pattern": "#policy",
+     "action": "inspect",
+     "confidence": 0.874,
+     "urgent": false,
+     "p_urgent": 0.172,
+     "decider_ms": 2897,
+     "probabilities": {},
+     "verdict": "inspect"
+    }
+   ],
+   "model_id": "qwen3.5-4b",
+   "latency_ms": 23111,
+   "agent": "PlantWise \u2013 beginner plant-care advisor",
+   "eager": false
+  },
+  "say": "My fern's soil is moist but some leaves are brown at the tips and a few are dropping.",
+  "narrate": "Mixed signals \u00e2\u20ac\u201d the decider should pick inspect, or ask for more detail if uncertain."
+ },
+ {
+  "start": 117.57825326919556,
+  "end": 147.0729410648346,
+  "out": {
+   "reply": "It looks like there isn't much recorded history for your pothos just yet! Every plant has its own rhythm, so that's fine. Do you have any recent observations it might be showing? For example, is the soil feeling damp or dry on the surface? Are the leaves looking vibrant or perhaps a bit yellow? Let me know and I'll give you some tailored advice",
+   "decisions": [
+    {
+     "pattern": "#policy",
+     "action": "inspect",
+     "confidence": 0.686,
+     "urgent": false,
+     "p_urgent": 0.222,
+     "decider_ms": 2790,
+     "probabilities": {},
+     "verdict": "inspect"
+    }
+   ],
+   "model_id": "qwen3.5-4b",
+   "latency_ms": 26588,
+   "agent": "PlantWise \u2013 beginner plant-care advisor",
+   "eager": false
+  },
+  "say": "How has my pothos been doing?",
+  "narrate": "The agent retrieves the care history logged from the first turn."
+ }
+]
